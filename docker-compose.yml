@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:                             #dbコンテナの設定について記述
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_volume:/var/lib/postgresql/data
+    ports:
+      - '3306:3306'
+#rails側のコンテナの設定について記述。apiじゃなくて、webと記述している場合もあります。docker-compose exec(run)の後にはここで指定した名前を記述して、コマンドを叩いています。
+  api:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    volumes:
+      - .:/myapp
+      - gems-volume:/usr/local/bundle
+    ports:
+      - 3010:3000
+    stdin_open: true #dockerコンテナを起動したままにできる。コンテナ内に入ってコマンドを打ち込める
+    tty: true          #コンテナを起動させたまま、bashで入れたりできる
+    depends_on:
+      - db
+volumes:
+  postgres_volume:
+  gems-volume:

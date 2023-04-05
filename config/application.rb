@@ -1,6 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
+require "graphiql/rails" # 追加する
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -23,5 +24,12 @@ module Myapp
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    config.debug_exception_response_format = :default
+    config.middleware.use(Rack::Deflater)
+    config.middleware.use(GraphQL::Schema::TimeoutMiddleware)
+    config.middleware.use(GraphiQL::Rails::WebConsoleExtensionMiddleware)
+    config.assets.quiet = true
   end
 end

@@ -47,5 +47,7 @@ group :development do
 end
 
 
-gem "graphql", "~> 2.0"
-gem "graphiql-rails", "~> 1.9"
+gem 'graphql'
+group :development do
+  gem 'graphiql-rails'
+end

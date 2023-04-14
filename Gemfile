@@ -42,11 +42,7 @@ group :development, :test do
 end
 
 group :development do
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem "spring"
+  gem 'graphiql-rails'
 end
 
-
-gem "graphql", "~> 2.0"
-gem "graphql-ruby"
-gem "graphiql-rails", "~> 1.9"
+gem 'graphql'

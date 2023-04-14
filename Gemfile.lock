@@ -82,7 +82,6 @@ GEM
       railties
       sprockets-rails
     graphql (2.0.20)
-    graphql-ruby (9001.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
@@ -111,6 +110,8 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+    nokogiri (1.14.2-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.6)
@@ -166,6 +167,7 @@ GEM
     zeitwerk (2.6.7)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
@@ -173,7 +175,6 @@ DEPENDENCIES
   debug
   graphiql-rails (~> 1.9)
   graphql (~> 2.0)
-  graphql-ruby
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.3)

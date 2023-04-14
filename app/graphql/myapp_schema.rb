@@ -37,10 +37,5 @@ class MyappSchema < GraphQL::Schema
     # For example, use Rails' GlobalID library (https://github.com/rails/globalid):
     GlobalID.find(global_id)
   end
-
-  rescue_from(GraphQL::Execution::Timeout::Error) do |err, obj, args, ctx, field|
-    error_message = "TimeoutError: #{field.name}"
-    ctx.add_error(GraphQL::ExecutionError.new(error_message))
-  end
   
 end

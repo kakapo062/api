@@ -23,7 +23,8 @@ module Myapp
     # CORS設定を追加する
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:3000' # フロントエンドのオリジンを指定 (Next.jsのデフォルトポートは3000)
+        origins 'localhost:3000' # フロントエンドのオリジンを指定 (Next.jsのデフォルトポートは3000)　MacBook Airの場合
+        origins 'localhost:3001' # MacBook Proの場合
 
         resource '*',
           headers: :any,

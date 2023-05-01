@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Types
-  class BookType < Types::BaseObject
+  class UserBookType < Types::BaseObject
     field :id, ID, null: false
-    field :title, String
-    field :author, String
+    field :user_id, Integer, null: false
+    field :book_id, Integer, null: false
+    field :status, String
+    field :rating, Integer
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
-    field :bookshelf_id, Integer
-    field :cover_image, String
   end
 end

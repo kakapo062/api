@@ -48,3 +48,5 @@ end
 gem 'graphql'
 
 gem 'rack-cors'
+
+gem 'jwt'

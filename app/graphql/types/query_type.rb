@@ -9,6 +9,14 @@ module Types
 
     field :books, [Types::BookType], null: false
 
+    field :user_books, [Types::UserBookType], null: false
+
+    def user_books
+      [{
+        id: 1
+      }]
+    end
+
     def books
       Book.all
     end
